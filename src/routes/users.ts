@@ -6,7 +6,7 @@ class Users extends Router {
 
    getHomePage() {
      return function(req, res, next){
-      // render page
+
       res.send('this is users router');
     };
    };

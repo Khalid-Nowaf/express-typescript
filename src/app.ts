@@ -20,6 +20,7 @@ class Server {
     }
 
     private config() {
+        // basic config
         this.app.use( logger('dev') );
         this.app.use( bodyParser.json());
         this.app.use( bodyParser.urlencoded({ extended: true}));
@@ -33,7 +34,6 @@ class Server {
              err.status = 404;
              next(err);
         });
-
         // development error handler
         // will print stacktrace
         if (this.app.get('env') === 'development') {
@@ -45,7 +45,6 @@ class Server {
                 });
             });
         }
-
         // production error handler
         // no stacktraces leaked to user
         this.app.use(function(err: any, req, res, next) {
@@ -57,7 +56,6 @@ class Server {
          });
 
     }
-
     private routes() {
       new Index(this.app);
     }

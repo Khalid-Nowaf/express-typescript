@@ -3,6 +3,7 @@ import express from 'express';
 
 ///////////// ALL ROUTES CLASSES /////////////////
 import Users from './users';
+// if you create new router file you should import it here
 /**
  * Index
  */
@@ -10,7 +11,9 @@ class Index extends Router {
   routes: [Router];
   constructor(app: express.Application) {
     super(app);
-    this.routes = [this, new Users(app)];
+    this.routes = [this, new Users(app)]; // <--- and you should also add the new class
+                                               // instance here 'new thenewrouter(app)',
+                                               // you should also pass the app to it 
 
   }
 
