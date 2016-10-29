@@ -1,8 +1,9 @@
 "use strict";
+var app = require('express');
 var Router = (function () {
-    function Router(app) {
+    function Router() {
         this.router = app.Router();
-        app.use(this.RootRoute, this.mountRoutes);
+        this.router.use(this.RootRoute, this.mountRoutes);
     }
     return Router;
 }());

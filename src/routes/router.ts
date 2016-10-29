@@ -1,4 +1,5 @@
-import * as express from 'express';
+import * as app from 'express';
+
 
  /**
   * this is just an abstract class to help you when
@@ -11,11 +12,12 @@ import * as express from 'express';
   */
   abstract class Router {
 
-      router: express.Router;
+      router: app.Router;
 
-     constructor(app: express.Application) {
+
+     constructor() {
          this.router = app.Router();
-         app.use(this.RootRoute, this.mountRoutes);
+         this.router.use(this.RootRoute, this.mountRoutes);
       }
       /**
        * should return the root path for the all routes
@@ -26,7 +28,7 @@ import * as express from 'express';
        * here you used this.router.get('path',function(res,res,next))
        * then you should retuen the router.
        */
-      abstract mountRoutes(): express.Router;
+      abstract mountRoutes(): app.Router;
 
  }
 
